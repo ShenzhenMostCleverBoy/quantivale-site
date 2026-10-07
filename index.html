@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantivale | AI-Driven Global Asset Allocation</title>
+<meta name="description" content="Quantivale uses artificial intelligence to build and manage globally diversified investment portfolios.">
+<style>
+  :root{
+    --bg:#0b1118;
+    --bg2:#101a24;
+    --card:#121e2a;
+    --line:#1f3042;
+    --text:#e8eef4;
+    --muted:#8fa3b5;
+    --accent:#3dd6b0;
+    --accent2:#4aa3ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:10;background:rgba(11,17,24,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:.14em;font-size:15px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .logo i{width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block;transform:rotate(45deg)}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:14px;color:var(--muted)}
+  nav ul a:hover{color:var(--text)}
+  .btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06121a;transition:transform .15s,opacity .15s}
+  .btn:hover{transform:translateY(-1px);opacity:.92}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--accent)}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:110px 0 100px}
+  .hero::before{
+    content:"";position:absolute;inset:-20% -10% auto auto;width:720px;height:720px;
+    background:radial-gradient(circle,rgba(74,163,255,.18),transparent 62%);pointer-events:none
+  }
+  .hero::after{
+    content:"";position:absolute;left:-12%;bottom:-40%;width:640px;height:640px;
+    background:radial-gradient(circle,rgba(61,214,176,.12),transparent 62%);pointer-events:none
+  }
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  h1{font-size:clamp(34px,5.4vw,60px);line-height:1.08;letter-spacing:-.02em;max-width:780px}
+  h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{margin-top:24px;max-width:600px;color:var(--muted);font-size:18px}
+  .cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero svg{position:absolute;right:0;bottom:30px;width:52%;max-width:560px;opacity:.55;pointer-events:none}
+
+  /* sections */
+  section{padding:88px 0;border-top:1px solid var(--line)}
+  section.alt{background:var(--bg2)}
+  h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.01em;margin-bottom:14px}
+  .sub{color:var(--muted);max-width:620px;margin-bottom:48px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:rgba(61,214,176,.5);transform:translateY(-2px)}
+  .num{font-size:12px;letter-spacing:.16em;color:var(--accent);margin-bottom:14px;font-weight:600}
+  .card h3{font-size:18px;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:15px}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  .step{padding-top:20px;border-top:2px solid var(--line);position:relative}
+  .step::before{counter-increment:s;content:"0" counter(s);font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.1em}
+  .step h3{font-size:17px;margin:8px 0 8px}
+  .step p{color:var(--muted);font-size:14.5px}
+
+  .contact-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+  .contact-box h2{margin-bottom:6px}
+  .contact-box p{color:var(--muted)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:12.5px}
+  footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px;font-size:13px}
+  footer p.disc{max-width:900px;line-height:1.7}
+
+  @media(max-width:860px){
+    .grid,.steps{grid-template-columns:1fr}
+    nav ul{display:none}
+    .hero{padding:72px 0 64px}
+    .hero svg{display:none}
+    .contact-box{padding:28px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo"><i></i>Quantivale</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Quantitative Investment Research</div>
+      <h1>Building global portfolios with <span>artificial intelligence</span></h1>
+      <p class="lead">Quantivale applies machine learning and rigorous quantitative methods to global asset allocation, helping construct diversified, risk-aware portfolios across markets and asset classes.</p>
+      <div class="cta">
+        <a href="#approach" class="btn">Our approach</a>
+        <a href="#contact" class="btn ghost">Contact us</a>
+      </div>
+    </div>
+    <svg viewBox="0 0 560 260" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#3dd6b0"/><stop offset="1" stop-color="#4aa3ff"/>
+        </linearGradient>
+      </defs>
+      <g stroke="#1f3042" stroke-width="1">
+        <line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/>
+        <line x1="0" y1="170" x2="560" y2="170"/><line x1="0" y1="230" x2="560" y2="230"/>
+      </g>
+      <path d="M0 210 C60 200 90 150 140 160 S220 120 270 128 S350 70 400 84 S490 40 560 28" stroke="url(#g)" stroke-width="2.5"/>
+      <path d="M0 190 C70 195 100 175 150 182 S230 160 280 150 S370 140 420 120 S500 110 560 96" stroke="#4aa3ff" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 5"/>
+      <circle cx="560" cy="28" r="4" fill="#3dd6b0"/>
+    </svg>
+  </div>
+
+  <section id="about" class="alt">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="sub">Quantivale is a quantitative investment research company focused on one question: how can AI help build better portfolios across the world's markets?</p>
+      <div class="grid">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>Global asset allocation</h3>
+          <p>We look across equities, fixed income, commodities, currencies and other asset classes, in developed and emerging markets, to find where capital is best deployed.</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>AI-driven portfolio construction</h3>
+          <p>Machine learning models help us estimate risk, identify relationships between assets and build portfolios that are diversified by design.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>Systematic and transparent</h3>
+          <p>Decisions follow a defined, testable process rather than guesswork. Every model is evaluated, monitored and refined over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <h2>Our approach</h2>
+      <p class="sub">A disciplined research process, from raw data to portfolio.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Data</h3>
+          <p>Global market, macroeconomic and alternative data, cleaned and structured for research.</p>
+        </div>
+        <div class="step">
+          <h3>Models</h3>
+          <p>AI and statistical models that estimate returns, volatility and cross-asset relationships.</p>
+        </div>
+        <div class="step">
+          <h3>Construction</h3>
+          <p>Optimisation under explicit risk, diversification and cost constraints.</p>
+        </div>
+        <div class="step">
+          <h3>Monitoring</h3>
+          <p>Continuous out-of-sample testing and risk review to keep models honest as markets change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles" class="alt">
+    <div class="wrap">
+      <h2>Principles</h2>
+      <p class="sub">What guides how we build.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Risk first</h3>
+          <p>Understanding what can go wrong comes before chasing what could go right.</p>
+        </div>
+        <div class="card">
+          <h3>Diversification</h3>
+          <p>Global breadth across regions and asset classes is the foundation of a resilient portfolio.</p>
+        </div>
+        <div class="card">
+          <h3>Evidence over narrative</h3>
+          <p>We trust data and rigorous testing, and stay sceptical of stories that sound too good.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <h2>Get in touch</h2>
+          <p>Questions about Quantivale? We'd be glad to hear from you.</p>
+        </div>
+        <a class="btn" href="mailto:jacksonqiao@quantivale.co.uk">jacksonqiao@quantivale.co.uk</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>&copy; <span id="yr">2026</span> Quantivale. All rights reserved.</span>
+      <span>quantivale.co.uk</span>
+    </div>
+    <p class="disc">The information on this website is for general information only and does not constitute investment advice, an offer, or a solicitation to buy or sell any financial product. Quantivale is not currently authorised or regulated by the Financial Conduct Authority. The value of investments can go down as well as up, and past performance is not a reliable indicator of future results.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
